@@ -35,8 +35,8 @@ key = "FORTIFICATION"
 print("Plaintext:", plaintext)
 print("Key:", key)
 
-ciphertext = Autokey_Encrypt(plaintext, key)
-print("Ciphertext:", ciphertext)
+cipher_text = Autokey_Encrypt(plaintext, key)
+print("Ciphertext:", cipher_text)
 
-decrypted_text = Autokey_Decrypt(ciphertext, key)
+decrypted_text = Autokey_Decrypt(cipher_text, key)
 print("Decrypted Text:", decrypted_text)
