@@ -9,7 +9,7 @@ def matrix(key):
         if ch not in matrix:
             matrix += ch
 
-    return [list (matrix[i:i+5]) for i in range(0, 25, 5)] #5x5 matrix banane k liye
+    return [list (matrix[i:i+5]) for i in range(0, 25, 5)]
 
 def find_position(matrix,ch):
     for i in range(5):
@@ -26,10 +26,10 @@ def encrypt(plaintext,matrix):
         a=text[i]
         b=text[i+1] if i+1 < len(text) else 'X'
         if a==b:
-            pairs.append((a,'X')) #agr same letter ho to 2nd letter ki jga X add krdeta
+            pairs.append((a,'X'))
             i+=1
         else:
-            pairs.append((a,b)) #agr different ho to as it is add krdeta
+            pairs.append((a,b))
             i+=2
             
     cipher=""
@@ -37,33 +37,33 @@ def encrypt(plaintext,matrix):
                 r1, c1= find_position(matrix,a)
                 r2, c2= find_position(matrix,b)
                 if r1==r2:
-                    cipher+=matrix[r1][(c1+1)%5] #agr same row m ho to next column ma shift krdeta
+                    cipher+=matrix[r1][(c1+1)%5]
                     cipher+=matrix[r2][(c2+1)%5]
                 elif c1==c2:
-                    cipher+=matrix[(r1+1)%5][c1] #agr same column m ho to next row ma shift krdeta
+                    cipher+=matrix[(r1+1)%5][c1]
                     cipher+=matrix[(r2+1)%5][c2]
                 else:
-                    cipher+=matrix[r1][c2] #agr same row or column m na ho to unka column swap krdeta
+                    cipher+=matrix[r1][c2]
                     cipher+=matrix[r2][c1]
     return cipher
         
 def decrypt(ciphertext,matrix):
     plain=""
-    for i in range(0,len(ciphertext),2): #2 2 k pairs ma leta ha
+    for i in range(0,len(ciphertext),2): 
         a,b=ciphertext[i],ciphertext[i+1]
         r1,c1=find_position(matrix,a)
         r2,c2=find_position(matrix,b)
 
         if r1==r2:
-            plain+=matrix[r1][(c1-1)%5]  #agr same row m ho to previous column ma shift krdeta
+            plain+=matrix[r1][(c1-1)%5]  
             plain+=matrix[r2][(c2-1)%5]
 
         elif c1==c2:
-            plain+=matrix[(r1-1)%5][c1] #agr same column m ho to previous row ma shift krdeta
+            plain+=matrix[(r1-1)%5][c1] 
             plain+=matrix[(r2-1)%5][c2]
 
         else:
-            plain+=matrix[r1][c2]   #agr same row or column m na ho to unka column swap krdeta
+            plain+=matrix[r1][c2]  
             plain+=matrix[r2][c1]
     return plain
 
