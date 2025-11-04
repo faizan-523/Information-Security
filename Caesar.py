@@ -25,8 +25,10 @@ def decrypt(cipher, shift):
     return result
 
 
-message="Network Security"
-shift=5
+
+message = input("Enter any message you want to encrypt: ")
+shift = int(input("Enter integer you want to shift the alphabet: "))
+
 print("Original Message:", message)
 
 encrypted_message = encrypt(message, shift)
