@@ -29,8 +29,8 @@ def Autokey_Decrypt(ciphertext, key):
         full_key += alphabet[p]
     return plaintext
 
-plaintext = "DEFENDTHEEASTWALLOFTHECASTLE"
-key = "FORTIFICATION"
+plaintext = "Cristiano Ronaldo"
+key = "Faizan"
 
 print("Plaintext:", plaintext)
 print("Key:", key)
