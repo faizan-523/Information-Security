@@ -48,13 +48,6 @@ It helps students understand how classical encryption techniques work through Py
 
 ---
 
-## 👨‍💻 Author
-
-**Muhammad Faizan**
-BS Computer Science Student
-
----
-
 ## 📜 License
 
 This project is created for **educational purposes only**.
